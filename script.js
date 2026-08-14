@@ -142,7 +142,7 @@ function atualizarTabela() {
         "2": 0
     }[empunhadura.value];
 
-    const danoPontos = dano.value;
+    const danoPontos = Number(dano.value);
 
     const totalPontos = {
         "1": 8,

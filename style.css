@@ -271,6 +271,62 @@ tbody td:first-child {
 
 }
 
+.titulo-itens {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.titulo-itens h2 {
+    margin: 0;
+}
+
+
+.botao-imagem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 40px;
+
+    padding: 0 15px;
+
+    border: 1px solid #c66b32;
+    border-radius: 7px;
+
+    background: white;
+    color: #a65324;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.1s ease;
+}
+
+
+.botao-imagem:hover {
+    background: #c66b32;
+    color: white;
+}
+
+
+.botao-imagem:active {
+    transform: scale(0.97);
+}
+
+
+.icone {
+    font-size: 18px;
+    line-height: 1;
+}
+
 
 /* =========================
    RESPONSIVO
@@ -333,5 +389,7 @@ tbody td:first-child {
         min-width: 900px;
 
     }
+
+    
 
 }

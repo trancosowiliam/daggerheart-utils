@@ -276,7 +276,7 @@ function atualizarTabela() {
 
 copiarImagem.addEventListener("click", async () => {
 
-    const canvas = await html2canvas(itens);
+    const canvas = await html2canvas(tabelaImagem);
 
     canvas.toBlob(async (blob) => {
 

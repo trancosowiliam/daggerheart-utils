@@ -276,29 +276,53 @@ function atualizarTabela() {
 
 copiarImagem.addEventListener("click", async () => {
 
-    const canvas = await html2canvas(tabelaImagem);
+    try {
 
-    canvas.toBlob(async (blob) => {
+        const canvas = await html2canvas(tabelaImagem, {
+            scale: 2,
+            width: tabelaImagem.scrollWidth,
+            height: tabelaImagem.scrollHeight,
+            windowWidth: tabelaImagem.scrollWidth,
+            backgroundColor: "#ffffff",
+            useCORS: true
+        });
 
-        try {
 
-            await navigator.clipboard.write([
-                new ClipboardItem({
-                    "image/png": blob
-                })
-            ]);
+        canvas.toBlob(async (blob) => {
 
-            console.log("Imagem copiada!");
+            if (!blob) {
+                console.error("Erro ao gerar PNG.");
+                return;
+            }
 
-        } catch (erro) {
+            try {
 
-            console.error(
-                "Não foi possível copiar a imagem:",
-                erro
-            );
+                await navigator.clipboard.write([
+                    new ClipboardItem({
+                        "image/png": blob
+                    })
+                ]);
 
-        }
+                console.log("Imagem copiada!");
 
-    }, "image/png");
+            } catch (erro) {
+
+                console.error(
+                    "Não foi possível copiar a imagem:",
+                    erro
+                );
+
+            }
+
+        }, "image/png");
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao gerar imagem:",
+            erro
+        );
+
+    }
 
 });

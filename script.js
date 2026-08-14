@@ -1,3 +1,4 @@
+const patamar = document.getElementById("patamar");
 const nome = document.getElementById("nome");
 const atributo = document.getElementById("atributo");
 const distancia = document.getElementById("distancia");
@@ -35,15 +36,17 @@ const habilidades = [
 // EVENTOS
 // ========================================
 
-nome.addEventListener("input", atualizar);
+patamar.addEventListener("change", atualizar);
 
-atributo.addEventListener("change", atualizar);
+nome.addEventListener("input", atualizarTabela);
+
+atributo.addEventListener("change", atualizarTabela);
 
 distancia.addEventListener("change", atualizar);
 
 empunhadura.addEventListener("change", atualizar);
 
-habilidade.addEventListener("change", atualizar);
+habilidade.addEventListener("change", atualizarTabela);
 
 
 // ========================================
@@ -64,36 +67,6 @@ function atualizar() {
 // ========================================
 
 function atualizarHabilidades() {
-
-    habilidade.innerHTML = "";
-
-
-    // Ainda não selecionou os campos necessários
-
-    if (
-        !atributo.value ||
-        !distancia.value ||
-        !empunhadura.value
-    ) {
-
-        habilidade.disabled = true;
-
-        const option = document.createElement("option");
-
-        option.value = "";
-
-        option.textContent =
-            "Selecione os valores anteriores";
-
-        habilidade.appendChild(option);
-
-        return;
-    }
-
-
-    habilidade.disabled = false;
-
-
     // Opção nenhuma
 
     const nenhuma = document.createElement("option");
@@ -175,6 +148,9 @@ function atualizarTabela() {
     // VALORES
     // ========================================
 
+    const patamarValor =
+        patamar.value || "-";
+
     const nomeValor =
         nome.value || "Item sem nome";
 
@@ -220,6 +196,10 @@ function atualizarTabela() {
 
 
     linha.innerHTML = `
+
+        <td>
+            ${patamarValor}
+        </td>
 
         <td>
             ${nomeValor}

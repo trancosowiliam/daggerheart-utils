@@ -19,6 +19,31 @@
     <!-- FORMULÁRIO -->
     <section class="fabricador">
 
+        <!-- Patamar -->
+        <div class="campo">
+
+            <label for="patamar">Patamar</label>
+
+            <select id="patamar">
+                <option value="1">
+                    1
+                </option>
+
+                <option value="2">
+                    2
+                </option>
+
+                <option value="3">
+                    3
+                </option>
+
+                <option value="4">
+                    4
+                </option>
+            </select>
+
+        </div>
+
         <!-- Nome -->
         <div class="campo nome">
             <label for="nome">Nome</label>
@@ -37,9 +62,6 @@
             <label for="atributo">Atributo</label>
 
             <select id="atributo">
-
-                <option value="">Selecione</option>
-
                 <option value="forca">
                     Força
                 </option>
@@ -75,9 +97,6 @@
             <label for="distancia">Alcance</label>
 
             <select id="distancia">
-
-                <option value="">Selecione</option>
-
                 <option value="cac">
                     Corpo a corpo
                 </option>
@@ -102,6 +121,18 @@
 
         </div>
 
+        <!-- Dano -->
+        <div class="campo dano">
+            <label for="dano">Dano</label>
+
+            <input
+                type="text"
+                id="dano"
+                placeholder="Dano do item"
+                disabled
+            >
+        </div>
+
 
         <!-- Empunhadura -->
         <div class="campo">
@@ -109,10 +140,6 @@
             <label for="empunhadura">Empunhadura</label>
 
             <select id="empunhadura">
-
-                <option value="">
-                    Selecione
-                </option>
 
                 <option value="1">
                     Uma mão
@@ -161,6 +188,7 @@
 
                 <tr>
 
+                    <th>Patamar</th>
                     <th>Nome</th>
                     <th>Atributo</th>
                     <th>Alcance</th>

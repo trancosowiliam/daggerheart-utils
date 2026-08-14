@@ -45,6 +45,8 @@ atributo.addEventListener("change", atualizarTabela);
 
 distancia.addEventListener("change", atualizar);
 
+dano.addEventListener("change", atualizar);
+
 empunhadura.addEventListener("change", atualizar);
 
 habilidade.addEventListener("change", atualizarTabela);

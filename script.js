@@ -3,12 +3,14 @@ const atributo = document.getElementById("atributo");
 const distancia = document.getElementById("distancia");
 const empunhadura = document.getElementById("empunhadura");
 const habilidade = document.getElementById("habilidade");
+
 const itens = document.getElementById("itens");
 
-const resultado = document.getElementById("resultado");
 
+// ========================================
+// HABILIDADES
+// ========================================
 
-// Habilidades disponíveis
 const habilidades = [
     {
         nome: "Inconveniente",
@@ -29,40 +31,59 @@ const habilidades = [
 ];
 
 
-// Sempre que alguma característica mudar,
-// recalculamos as habilidades disponíveis.
+// ========================================
+// EVENTOS
+// ========================================
+
 nome.addEventListener("input", atualizar);
+
 atributo.addEventListener("change", atualizar);
+
 distancia.addEventListener("change", atualizar);
+
 empunhadura.addEventListener("change", atualizar);
 
+habilidade.addEventListener("change", atualizar);
+
+
+// ========================================
+// ATUALIZAR TUDO
+// ========================================
 
 function atualizar() {
 
     atualizarHabilidades();
-    atualizarResultado();
+
+    atualizarTabela();
 
 }
 
+
+// ========================================
+// ATUALIZAR HABILIDADES
+// ========================================
 
 function atualizarHabilidades() {
 
     habilidade.innerHTML = "";
 
-    const valoresPreenchidos =
-        atributo.value &&
-        distancia.value &&
-        empunhadura.value;
 
+    // Ainda não selecionou os campos necessários
 
-    if (!valoresPreenchidos) {
+    if (
+        !atributo.value ||
+        !distancia.value ||
+        !empunhadura.value
+    ) {
 
         habilidade.disabled = true;
 
         const option = document.createElement("option");
 
         option.value = "";
-        option.textContent = "Selecione os valores acima";
+
+        option.textContent =
+            "Selecione os valores anteriores";
 
         habilidade.appendChild(option);
 
@@ -73,24 +94,31 @@ function atualizarHabilidades() {
     habilidade.disabled = false;
 
 
-    const primeiraOpcao = document.createElement("option");
+    // Opção nenhuma
 
-    primeiraOpcao.value = "";
-    primeiraOpcao.textContent = "Nenhuma";
+    const nenhuma = document.createElement("option");
 
-    habilidade.appendChild(primeiraOpcao);
+    nenhuma.value = "";
+
+    nenhuma.textContent = "Nenhuma";
+
+    habilidade.appendChild(nenhuma);
 
 
-    const habilidadesDisponiveis =
+    // Pega as habilidades disponíveis
+
+    const disponiveis =
         obterHabilidadesDisponiveis();
 
 
-    habilidadesDisponiveis.forEach(habilidadeItem => {
+    disponiveis.forEach(item => {
 
-        const option = document.createElement("option");
+        const option =
+            document.createElement("option");
 
-        option.value = habilidadeItem.valor;
-        option.textContent = habilidadeItem.nome;
+        option.value = item.valor;
+
+        option.textContent = item.nome;
 
         habilidade.appendChild(option);
 
@@ -99,13 +127,18 @@ function atualizarHabilidades() {
 }
 
 
+// ========================================
+// HABILIDADES DISPONÍVEIS
+// ========================================
+
 function obterHabilidadesDisponiveis() {
 
     /*
-     * É AQUI que vamos colocar as regras
-     * do seu sistema.
+     * POR ENQUANTO:
+     * todas as habilidades estão disponíveis.
      *
-     * Por enquanto, todas estão disponíveis.
+     * Depois vamos colocar aqui
+     * as regras do seu sistema.
      */
 
     return habilidades;
@@ -113,27 +146,77 @@ function obterHabilidadesDisponiveis() {
 }
 
 
-function atualizarResultado() {
+// ========================================
+// ATUALIZAR TABELA
+// ========================================
+
+function atualizarTabela() {
+
+    // Limpa a tabela
 
     itens.innerHTML = "";
+
+
+    // Se não tiver nenhum campo preenchido,
+    // não mostra nada.
+
+    if (
+        !nome.value &&
+        !atributo.value &&
+        !distancia.value &&
+        !empunhadura.value
+    ) {
+
+        return;
+    }
+
+
+    // ========================================
+    // VALORES
+    // ========================================
 
     const nomeValor =
         nome.value || "Item sem nome";
 
+
     const atributoValor =
-        atributo.options[atributo.selectedIndex]?.text || "-";
+        atributo.value
+            ? atributo.options[
+                atributo.selectedIndex
+            ].text
+            : "-";
+
 
     const distanciaValor =
-        distancia.options[distancia.selectedIndex]?.text || "-";
+        distancia.value
+            ? distancia.options[
+                distancia.selectedIndex
+            ].text
+            : "-";
+
 
     const empunhaduraValor =
-        empunhadura.options[empunhadura.selectedIndex]?.text || "-";
+        empunhadura.value
+            ? empunhadura.options[
+                empunhadura.selectedIndex
+            ].text
+            : "-";
+
 
     const habilidadeValor =
-        habilidade.options[habilidade.selectedIndex]?.text || "—";
+        habilidade.value
+            ? habilidade.options[
+                habilidade.selectedIndex
+            ].text
+            : "—";
 
 
-    const linha = document.createElement("tr");
+    // ========================================
+    // CRIAR LINHA
+    // ========================================
+
+    const linha =
+        document.createElement("tr");
 
 
     linha.innerHTML = `

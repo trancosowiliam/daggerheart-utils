@@ -2,6 +2,7 @@ const patamar = document.getElementById("patamar");
 const nome = document.getElementById("nome");
 const atributo = document.getElementById("atributo");
 const distancia = document.getElementById("distancia");
+const dano = document.getElementById("dano");
 const empunhadura = document.getElementById("empunhadura");
 const habilidade = document.getElementById("habilidade");
 
@@ -125,6 +126,27 @@ function obterHabilidadesDisponiveis() {
 
 function atualizarTabela() {
 
+
+    const distanciaPontos = {
+        "cac": 0,
+        "muito-perto": 1,
+        "perto": 2,
+        "distante": 3,
+        "muito-distante": 4
+    }[distancia.value];
+
+    const empunhaduraPontos = {
+        "1": 1,
+        "2": 0
+    }[empunhadura.value];
+
+    const totalPontos = {
+        "1": 8,
+        "2": 14
+    }[patamar.value];
+
+    const pontosRestantes = totalPontos - (distanciaPontos + empunhaduraPontos);
+
     // Limpa a tabela
 
     itens.innerHTML = "";
@@ -214,7 +236,7 @@ function atualizarTabela() {
         </td>
 
         <td>
-            -
+            ${pontosRestantes}
         </td>
 
         <td>

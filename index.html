@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,86 +12,181 @@
 
 <body>
 
-    <main class="container">
+<main class="container">
 
-        <h1>Fabricador de Itens</h1>
+    <h1>Fabricador de Itens</h1>
 
-        <section class="fabricador">
+    <!-- FORMULÁRIO -->
+    <section class="fabricador">
 
-            <!-- Nome -->
-            <div class="campo nome">
-                <label for="nome">Nome</label>
-                <input
-                    type="text"
-                    id="nome"
-                    placeholder="Nome do item"
-                >
-            </div>
+        <!-- Nome -->
+        <div class="campo nome">
+            <label for="nome">Nome</label>
 
-            <!-- Atributo -->
-            <div class="campo">
-                <label for="atributo">Atributo</label>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Nome do item"
+            >
+        </div>
 
-                <select id="atributo">
-                    <option value="">Selecione</option>
-                    <option value="forca">Força</option>
-                    <option value="agilidade">Agilidade</option>
-                    <option value="acuidade">Acuidade</option>
-                    <option value="presenca">Presença</option>
-                    <option value="instinto">Instinto</option>
-                    <option value="conhecimento">Conhecimento</option>
-                </select>
-            </div>
 
-            <!-- Distância -->
-            <div class="campo">
-                <label for="distancia">Distância</label>
+        <!-- Atributo -->
+        <div class="campo">
 
-                <select id="distancia">
-                    <option value="">Selecione</option>
-                    <option value="cac">Corpo a Corpo</option>
-                    <option value="muito-perto">Muito Perto</option>
-                    <option value="perto">Perto</option>
-                    <option value="distante">Distante</option>
-                    <option value="muito-distante">Muito Distante</option>
-                </select>
-            </div>
+            <label for="atributo">Atributo</label>
 
-            <!-- Empunhadura -->
-            <div class="campo">
-                <label for="empunhadura">Empunhadura</label>
+            <select id="atributo">
 
-                <select id="empunhadura">
-                    <option value="">Selecione</option>
-                    <option value="1">Uma mão</option>
-                    <option value="2">Duas mãos</option>
-                </select>
-            </div>
+                <option value="">Selecione</option>
 
-            <!-- Habilidade -->
-            <div class="campo">
-                <label for="habilidade">Habilidade</label>
+                <option value="forca">
+                    Força
+                </option>
 
-                <select id="habilidade" disabled>
-                    <option value="">Selecione os valores acima</option>
-                </select>
-            </div>
+                <option value="agilidade">
+                    Agilidade
+                </option>
 
-        </section>
+                <option value="acuidade">
+                    Acuidade
+                </option>
 
-        <section class="resultado">
+                <option value="presenca">
+                    Presença
+                </option>
 
-            <h2>Item</h2>
+                <option value="instinto">
+                    Instinto
+                </option>
 
-            <div id="resultado">
-                Preencha os campos acima para criar seu item.
-            </div>
+                <option value="conhecimento">
+                    Conhecimento
+                </option>
 
-        </section>
+            </select>
 
-    </main>
+        </div>
 
-    <script src="script.js"></script>
+
+        <!-- Alcance -->
+        <div class="campo">
+
+            <label for="distancia">Alcance</label>
+
+            <select id="distancia">
+
+                <option value="">Selecione</option>
+
+                <option value="cac">
+                    Corpo a corpo
+                </option>
+
+                <option value="muito-perto">
+                    Muito próximo
+                </option>
+
+                <option value="perto">
+                    Perto
+                </option>
+
+                <option value="distante">
+                    Distante
+                </option>
+
+                <option value="muito-distante">
+                    Muito Distante
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Empunhadura -->
+        <div class="campo">
+
+            <label for="empunhadura">Empunhadura</label>
+
+            <select id="empunhadura">
+
+                <option value="">
+                    Selecione
+                </option>
+
+                <option value="1">
+                    Uma mão
+                </option>
+
+                <option value="2">
+                    Duas mãos
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Habilidade -->
+        <div class="campo">
+
+            <label for="habilidade">Habilidade</label>
+
+            <select
+                id="habilidade"
+                disabled
+            >
+
+                <option value="">
+                    Selecione os valores anteriores
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- TABELA -->
+    <section class="itens">
+
+        <h2>Itens criados</h2>
+
+        <div class="tabela-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>Nome</th>
+                    <th>Atributo</th>
+                    <th>Alcance</th>
+                    <th>Dano</th>
+                    <th>Empunhadura</th>
+                    <th>Habilidade</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="itens">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>

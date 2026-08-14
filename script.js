@@ -3,6 +3,7 @@ const atributo = document.getElementById("atributo");
 const distancia = document.getElementById("distancia");
 const empunhadura = document.getElementById("empunhadura");
 const habilidade = document.getElementById("habilidade");
+const itens = document.getElementById("itens");
 
 const resultado = document.getElementById("resultado");
 
@@ -114,45 +115,56 @@ function obterHabilidadesDisponiveis() {
 
 function atualizarResultado() {
 
-    if (
-        !nome.value &&
-        !atributo.value &&
-        !distancia.value &&
-        !empunhadura.value
-    ) {
+    itens.innerHTML = "";
 
-        resultado.textContent =
-            "Preencha os campos acima para criar seu item.";
+    const nomeValor =
+        nome.value || "Item sem nome";
 
-        return;
-    }
+    const atributoValor =
+        atributo.options[atributo.selectedIndex]?.text || "-";
+
+    const distanciaValor =
+        distancia.options[distancia.selectedIndex]?.text || "-";
+
+    const empunhaduraValor =
+        empunhadura.options[empunhadura.selectedIndex]?.text || "-";
+
+    const habilidadeValor =
+        habilidade.options[habilidade.selectedIndex]?.text || "—";
 
 
-    resultado.innerHTML = `
+    const linha = document.createElement("tr");
 
-        <strong>
-            ${nome.value || "Item sem nome"}
-        </strong>
 
-        <br><br>
+    linha.innerHTML = `
 
-        Atributo:
-        ${atributo.options[atributo.selectedIndex]?.text || "-"}
+        <td>
+            ${nomeValor}
+        </td>
 
-        <br>
+        <td>
+            ${atributoValor}
+        </td>
 
-        Distância:
-        ${distancia.options[distancia.selectedIndex]?.text || "-"}
+        <td>
+            ${distanciaValor}
+        </td>
 
-        <br>
+        <td>
+            -
+        </td>
 
-        Empunhadura:
-        ${empunhadura.options[empunhadura.selectedIndex]?.text || "-"}
+        <td>
+            ${empunhaduraValor}
+        </td>
 
-        <br>
-
-        Habilidade:
-        ${habilidade.options[habilidade.selectedIndex]?.text || "-"}
+        <td>
+            ${habilidadeValor}
+        </td>
 
     `;
+
+
+    itens.appendChild(linha);
+
 }

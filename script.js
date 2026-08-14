@@ -149,13 +149,19 @@ function atualizarTabela() {
         "2": 14
     }[patamar.value];
 
-    const pontosRestantes = totalPontos - (distanciaPontos + empunhaduraPontos + danoPontos);
+    const somaPontos =
+        distanciaPontos +
+        empunhaduraPontos +
+        danoPontos
+
+    const pontosRestantes = totalPontos - somaPontos;
 
     console.log("distanciaPontos:", distanciaPontos);
     console.log("empunhaduraPontos:", empunhaduraPontos);
     console.log("danoPontos:", danoPontos);
     console.log("totalPontos:", totalPontos);
     console.log("pontosRestantes:", pontosRestantes);
+    console.log("somaPontos:", somaPontos);
 
     // Limpa a tabela
 

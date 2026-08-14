@@ -205,7 +205,7 @@ function atualizarTabela() {
 
     const danoValor = dano.options[
             dano.selectedIndex
-        ].text + (pontosRestantes >= 0 ? `+${pontosRestantes}` : `${pontosRestantes}`);
+        ].text + (pontosRestantes >= 0 ? ` +${pontosRestantes}` : ` ${pontosRestantes}`);
 
 
     const empunhaduraValor =
@@ -251,7 +251,7 @@ function atualizarTabela() {
         </td>
 
         <td>
-            ${pontosRestantes}
+            ${danoValor}
         </td>
 
         <td>

@@ -7,7 +7,7 @@ const empunhadura = document.getElementById("empunhadura");
 const habilidade = document.getElementById("habilidade");
 
 const itens = document.getElementById("itens");
-
+const copiarImagem = document.getElementById("copiarImagem");
 
 // ========================================
 // HABILIDADES
@@ -273,3 +273,32 @@ function atualizarTabela() {
     itens.appendChild(linha);
 
 }
+
+copiarImagem.addEventListener("click", async () => {
+
+    const canvas = await html2canvas(itens);
+
+    canvas.toBlob(async (blob) => {
+
+        try {
+
+            await navigator.clipboard.write([
+                new ClipboardItem({
+                    "image/png": blob
+                })
+            ]);
+
+            console.log("Imagem copiada!");
+
+        } catch (erro) {
+
+            console.error(
+                "Não foi possível copiar a imagem:",
+                erro
+            );
+
+        }
+
+    }, "image/png");
+
+});

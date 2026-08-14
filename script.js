@@ -136,16 +136,18 @@ function atualizarTabela() {
     }[distancia.value];
 
     const empunhaduraPontos = {
-        "1": 1,
+        "1": 2,
         "2": 0
     }[empunhadura.value];
+
+    const danoPontos = dano.value;
 
     const totalPontos = {
         "1": 8,
         "2": 14
     }[patamar.value];
 
-    const pontosRestantes = totalPontos - (distanciaPontos + empunhaduraPontos);
+    const pontosRestantes = totalPontos - (distanciaPontos + empunhaduraPontos + danoPontos);
 
 
     console.log("Distância value:", distancia.value);
@@ -153,6 +155,7 @@ function atualizarTabela() {
     console.log("Empunhadra Value:", empunhadura.value);
     console.log("Empunhadra Pontos:", empunhaduraPontos);
     console.log("patamar.value:", patamar.value);
+    console.log("danoPontos:", dano.value);
     console.log("totalPontos:", totalPontos);
 
     // Limpa a tabela
@@ -182,7 +185,7 @@ function atualizarTabela() {
         patamar.value || "-";
 
     const nomeValor =
-        nome.value || "Item sem nome";
+        nome.value || "";
 
 
     const atributoValor =
@@ -199,6 +202,10 @@ function atualizarTabela() {
                 distancia.selectedIndex
             ].text
             : "-";
+
+    const danoValor = dano.options[
+            dano.selectedIndex
+        ].text + (pontosRestantes >= 0 ? `+${pontosRestantes}` : `${pontosRestantes}`);
 
 
     const empunhaduraValor =

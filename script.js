@@ -149,14 +149,11 @@ function atualizarTabela() {
 
     const pontosRestantes = totalPontos - (distanciaPontos + empunhaduraPontos + danoPontos);
 
-
-    console.log("Distância value:", distancia.value);
-    console.log("Distância Pontos:", distanciaPontos);
-    console.log("Empunhadra Value:", empunhadura.value);
-    console.log("Empunhadra Pontos:", empunhaduraPontos);
-    console.log("patamar.value:", patamar.value);
-    console.log("danoPontos:", dano.value);
+    console.log("distanciaPontos:", distanciaPontos);
+    console.log("empunhaduraPontos:", empunhaduraPontos);
+    console.log("danoPontos:", danoPontos);
     console.log("totalPontos:", totalPontos);
+    console.log("pontosRestantes:", pontosRestantes);
 
     // Limpa a tabela
 
